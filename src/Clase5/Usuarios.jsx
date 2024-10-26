@@ -2,17 +2,12 @@ import { useEffect, useState } from "react";
 import useApi from "./useApi"
 
 const Usuarios = () => {
-    const [users, setUsers] = useState([]);
-    const items = useApi("https://jsonplaceholder.typicode.com/users")
-
-    useEffect(() => {
-        setUsers(items ? items : []);
-    }, [items])
+    const items = useApi("https://jsonplaceholder.typicode.com/users");
 
     return (
         <div className="container">
             <div className="row">
-                {users.map(item => (
+                {items.map(item => (
                     <div key={item.id} className="col-md-3 mb-3">
                         <div className="card">
                             <div className="card-body">
