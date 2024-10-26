@@ -1,26 +1,26 @@
+import { Routes, Route } from "react-router-dom";
 import NavBar from './Clase4/NavBar'
-import { Routes, Route, useRoutes } from "react-router-dom";
 import Productos from './Clase4/Productos';
 import Producto from './Clase4/Producto';
-import ProductosFiltro from './Clase4/ProductosFiltro';
+import ThemeProvider from "./Clase5/context/ThemeContext";
+import Spread from "./Clase5/Spread";
+import CartProvider from "./Clase5/context/CartContext";
+import Usuarios from "./Clase5/Usuarios";
 
 function App() {
-  /* let routes = useRoutes([
-    {path:"/", element:<Productos />},
-    {path:"/categoria/:id", element:<Productos />},
-    {path:"/producto/:id", element:<Producto />}
-  ]); */
-
   return (
     <>
-      <NavBar />
-      {/* {routes} */}
-      <Routes>
-        <Route path={"/"} element={<Productos />} /> 
-        <Route path={"/buscar"} element={<ProductosFiltro />} />
-        <Route path={"/categoria/:id"} element={<Productos />} />
-        <Route path={"/producto/:id"} element={<Producto />} /> 
-      </Routes>
+      <CartProvider>
+        <ThemeProvider>
+          <NavBar />
+          <Routes>
+            <Route path={"/"} element={<Usuarios />} /> 
+            <Route path={"/categoria/:id"} element={<Productos />} />
+            <Route path={"/producto/:id"} element={<Producto />} /> 
+          </Routes>
+          {/* <Spread /> */}
+        </ThemeProvider>
+      </CartProvider>
     </>
   )
 }

@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom"
-import CampoBusqueda from "./CampoBusqueda"
+import CambiarTema from "../Clase5/CambiarTema"
+import { ThemeContext } from "../Clase5/context/ThemeContext"
+import { useContext } from "react"
+import Carrito from "../Clase5/Carrito"
 
 const NavBar = () => {
+    const {color} = useContext(ThemeContext);
+
     return (
         <div className="container my-3">
             <div className="row">
@@ -11,21 +16,22 @@ const NavBar = () => {
                 <div className="col-md-8 d-flex align-items-end">
                     <ul className="nav justify-content-start">
                         <li className="nav-item">
-                            <Link to={"/"} className="nav-link text-dark">Productos</Link>
+                            <Link to={"/"} className={`nav-link ${color}`}>Productos</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to={"/categoria/hamburguesas"} className="nav-link text-black">Hamburguesas</Link>
+                            <Link to={"/categoria/hamburguesas"} className={`nav-link ${color}`}>Hamburguesas</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to={"/categoria/pollo"} className="nav-link text-dark">Pollo</Link>
+                            <Link to={"/categoria/pollo"} className={`nav-link ${color}`}>Pollo</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to={"/categoria/postres"} className="nav-link text-dark">Postres</Link>
+                            <Link to={"/categoria/postres"} className={`nav-link ${color}`}>Postres</Link>
                         </li>
                     </ul>
                 </div>
                 <div className="col-md-3 d-flex align-items-end justify-content-end">
-                    <CampoBusqueda />
+                    <CambiarTema />
+                    <Carrito />
                 </div>
             </div>
         </div>
