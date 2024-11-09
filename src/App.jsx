@@ -4,7 +4,7 @@ import Productos from './Clase4/Productos';
 import Producto from './Clase4/Producto';
 import ThemeProvider from "./Clase5/context/ThemeContext";
 import CartProvider from "./Clase5/context/CartContext";
-import APIAxios from "./Clase6/APIAxios";
+import Desafio2 from "./Clase7/Desafio/Desafio2";
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
         <ThemeProvider>
           <NavBar />
           <Routes>
-            <Route path={"/"} element={<APIAxios />} /> 
+            <Route path={"/"} element={<Desafio2 />} /> 
             <Route path={"/categoria/:id"} element={<Productos />} />
             <Route path={"/producto/:id"} element={<Producto />} /> 
           </Routes>
