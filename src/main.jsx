@@ -1,5 +1,9 @@
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter } from "react-router-dom"
+import { Provider } from "react-redux";
+import { createStore } from 'redux';
+import cartReducer from './Clase8/redux/cartReducer';
 import App from './App'
 
-createRoot(document.getElementById('root')).render(<BrowserRouter><App /></BrowserRouter>)
+let store = createStore(cartReducer);
+
+createRoot(document.getElementById('root')).render(<Provider store={store}><App /></Provider>)
