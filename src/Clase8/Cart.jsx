@@ -1,20 +1,14 @@
 import { useSelector, useDispatch } from "react-redux";
 import { actions } from "./redux/actions";
-import { useEffect, useState } from "react";
 
 const Cart = () => {
     const carrito = useSelector(state => state.carrito);
     const dispatch = useDispatch();
-    const [total, setTotal] = useState(dispatch(actions.totalCarrito()));
+    const total = useSelector(state => state.total);
 
     const eliminarDelCarrito = (id) => {
         dispatch(actions.eliminarDelCarrito(id));
-        setTotal(dispatch(actions.totalCarrito()));
     }
-
-    /* useEffect(() => {
-        //setTotal(dispatch(actions.totalCarrito()));
-    }) */
 
     if (total == 0) {
         return (

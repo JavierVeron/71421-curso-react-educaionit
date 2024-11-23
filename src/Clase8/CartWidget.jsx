@@ -1,17 +1,8 @@
-import { actions } from "./redux/actions";
-import { useEffect, useState } from "react"
-import { useSelector, useDispatch } from "react-redux"
+import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 
 const CartWidget = () => {
-    const dispatch = useDispatch(); 
-    dispatch(actions.totalCarrito());
-    const [total, setTotal] = useState(useSelector(state => state.total));
-
-    useEffect(() => {
-        //dispatch(actions.totalCarrito());
-        //setTotal(useSelector(state => state.total));
-    })
+    const total = useSelector(state => state.total);
 
     return (
         <Link to={"/cart"}>
