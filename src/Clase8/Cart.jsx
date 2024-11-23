@@ -5,9 +5,11 @@ const Cart = () => {
     const carrito = useSelector(state => state.carrito);
     const dispatch = useDispatch();
     const total = useSelector(state => state.total);
+    const suma = useSelector(state => state.suma);
 
     const eliminarDelCarrito = (id) => {
         dispatch(actions.eliminarDelCarrito(id));
+        dispatch(actions.sumaCarrito());
     }
 
     if (total == 0) {
@@ -42,6 +44,11 @@ const Cart = () => {
                                     </tr>
                                 ))
                             }
+                            <tr>
+                                <td colSpan={4} className="text-center align-middle">Total a Pagar</td>
+                                <td className="text-center align-middle">${suma}</td>
+                                <td>&nbsp;</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

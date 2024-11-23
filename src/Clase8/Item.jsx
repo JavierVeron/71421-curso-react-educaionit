@@ -10,6 +10,8 @@ const Item = () => {
 
     const agregarAlCarrito = (id) => {
        dispatch(actions.agregarAlCarrito(id));
+       dispatch(actions.totalCarrito());
+       dispatch(actions.sumaCarrito());
     }
 
     return (

@@ -12,7 +12,7 @@ const cartReducer = (state = initialState, action) => {
 
     switch(action.type) {
         case "AGREGAR_AL_CARRITO":
-            let producto = state.carrito.find(item => item.id == action.payload);
+            let producto = state.carrito.find(item => item.id == action.payload);            
             
             if (producto) {
                 producto.cantidad += 1;
@@ -25,9 +25,7 @@ const cartReducer = (state = initialState, action) => {
 
             return {
                 ...state,
-                carrito:carritoActualizado,
-                total:state.carrito.reduce((acum, item) => acum += item.cantidad, 0),
-                suma:state.carrito.reduce((acum, item) => acum += item.cantidad * item.precio, 0)
+                carrito:carritoActualizado
             }
         case "ELIMINAR_DEL_CARRITO":
             carritoActualizado = state.carrito.filter(item => item.id != action.payload);
