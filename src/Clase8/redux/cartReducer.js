@@ -25,7 +25,9 @@ const cartReducer = (state = initialState, action) => {
 
             return {
                 ...state,
-                carrito:carritoActualizado
+                carrito:carritoActualizado,
+                total:carritoActualizado.reduce((acum, item) => acum += item.cantidad, 0),
+                suma:carritoActualizado.reduce((acum, item) => acum += item.cantidad * item.precio, 0)
             }
         case "ELIMINAR_DEL_CARRITO":
             carritoActualizado = state.carrito.filter(item => item.id != action.payload);
@@ -33,8 +35,8 @@ const cartReducer = (state = initialState, action) => {
             return {
                 ...state,
                 carrito:carritoActualizado,
-                total:state.carrito.reduce((acum, item) => acum += item.cantidad, 0),
-                suma:state.carrito.reduce((acum, item) => acum += item.cantidad * item.precio, 0)
+                total:carritoActualizado.reduce((acum, item) => acum += item.cantidad, 0),
+                suma:carritoActualizado.reduce((acum, item) => acum += item.cantidad * item.precio, 0)
             }
         case "TOTAL_CARRITO":            
             return {

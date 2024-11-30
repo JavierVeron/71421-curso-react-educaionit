@@ -3,6 +3,7 @@ import NavBar from './Clase8/NavBar'
 import Items from "./Clase8/Items";
 import Item from "./Clase8/Item";
 import Cart from "./Clase8/Cart";
+/* import Users from "./Clase10/Users"; */
 
 function App() {
   return (
