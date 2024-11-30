@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import productos from "./json/productos.json";
-import CartWidget from "./CartWidget";
+//import CartWidget from "./CartWidget";
 
 const NavBar = () => {
     return (
@@ -38,7 +38,7 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <div className="col-md-1 d-flex align-items-center text-end">
-                    <CartWidget />
+                    {/* <CartWidget /> */}
                 </div>
             </div>
         </div>
